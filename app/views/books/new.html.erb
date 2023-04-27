@@ -1,0 +1,7 @@
+<h1>Nuevo libro</h1>
+
+<%= form_with model: @book do |f| %>
+    <%= f.text_field :title %>
+    <%= f.text_field :isbn %>
+    <%= f.submit 'Guardar' %>
+<% end %>
