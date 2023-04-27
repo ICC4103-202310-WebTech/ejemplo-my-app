@@ -21,6 +21,9 @@ class Book < ApplicationRecord
     after_create :update_author_book_count
     after_validation :titleize_title
 
+    scope :published_before, ->(published_date) { where('published_at < ?', published_date) }
+    scope :title_like, -> (name) {where("title LIKE '%#{name}%'")}
+
     def titleize_title
         self.title = self.title.titleize
     end
